@@ -1,0 +1,6 @@
+{
+  "name": "SAP Tech & Enterprise Solutions Hub",
+  "description": "Cổng cập nhật thông tin chính thức từ SAP: Tin tức SAP News Center, SAP Community, giải pháp S/4HANA ERP, BTP Cloud, Joule AI và tư vấn kiến trúc doanh nghiệp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
