@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/news-sap/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
