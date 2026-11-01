@@ -285,19 +285,24 @@ Hãy trả về phản hồi định dạng JSON thuần túy (không bọc tron
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
     const { createServer: createViteServer } = await import('vite');
+
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+      },
       appType: 'spa',
     });
+
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(__dirname, 'dist');
+    const distPath = path.resolve(process.cwd(), 'dist');
+
+    console.log('Serving static files from:', distPath);
+
     app.use(express.static(distPath));
-    app.get('*', (_req, res) => {
-   res.sendFile(path.join(distPath, 'index.html'));
-});
+
     app.get('*', (_req: Request, res: Response) => {
-      res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+      res.sendFile(path.join(distPath, 'index.html'));
     });
   }
 
